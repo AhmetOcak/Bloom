@@ -1,8 +1,8 @@
 package com.bloom.screens
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -52,7 +52,8 @@ fun WelcomeScreen() {
 private fun WelcomePrimaryBackground() {
     Box(modifier = Modifier.fillMaxWidth()) {
         Image(
-            painter = painterResource(id = R.drawable.ic_light_welcome_bg),
+            painter = if (isSystemInDarkTheme()) painterResource(id = R.drawable.ic_dark_welcome_bg)
+            else painterResource(id = R.drawable.ic_light_welcome_bg),
             contentDescription = null,
             contentScale = ContentScale.FillWidth
         )
@@ -66,7 +67,8 @@ private fun WelcomeSecondaryBackground() {
             .padding(top = 72.dp)
             .offset(x = 88.dp)
             .fillMaxWidth(),
-        painter = painterResource(id = R.drawable.ic_light_welcome_illos),
+        painter = if(isSystemInDarkTheme()) painterResource(id = R.drawable.ic_dark_welcome_illos)
+        else painterResource(id = R.drawable.ic_light_welcome_illos),
         contentDescription = null,
         contentScale = ContentScale.Inside
     )
@@ -75,7 +77,8 @@ private fun WelcomeSecondaryBackground() {
 @Composable
 private fun BloomLogo() {
     Image(
-        painter = painterResource(id = R.drawable.ic_light_logo),
+        painter = if (isSystemInDarkTheme()) painterResource(id = R.drawable.ic_dark_logo)
+        else painterResource(id = R.drawable.ic_light_logo),
         contentDescription = null,
         contentScale = ContentScale.Fit
     )
@@ -84,7 +87,7 @@ private fun BloomLogo() {
 @Composable
 private fun BloomDescription() {
     Text(
-        modifier = Modifier.padding(top = 32.dp),
+        modifier = Modifier.paddingFromBaseline(top = 32.dp),
         text = "Beautiful home garden solutions",
         color = MaterialTheme.colors.onBackground,
         style = MaterialTheme.typography.subtitle1
@@ -95,7 +98,7 @@ private fun BloomDescription() {
 private fun CreateAccountButton() {
     RoundedButton(
         onclick = { /*TODO*/ },
-        paddingValues = PaddingValues(start = 8.dp, end = 8.dp, top = 40.dp),
+        paddingValues = PaddingValues(start = 16.dp, end = 16.dp, top = 40.dp),
         text = "Create Account"
     )
 }

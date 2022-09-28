@@ -2,7 +2,6 @@ package com.bloom.screens
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
-import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -34,8 +33,8 @@ fun LoginScreen() {
                 LoginDescription()
                 RoundedButton(
                     onclick = { /*TODO*/ },
-                    paddingValues = PaddingValues(horizontal = 8.dp),
-                    text = "Log in"
+                    paddingValues = PaddingValues(horizontal = 16.dp),
+                    text = "Log in",
                 )
             }
         }
@@ -72,11 +71,13 @@ private fun TextFields() {
     OutTextField(
         onValueChanged = {},
         paddingValues = PaddingValues(start = 16.dp, end = 16.dp, top = 16.dp),
-        placeholderText = "Email address"
+        placeholderText = "Email address",
+        leadingIcon = null
     )
     OutTextField(
         onValueChanged = {},
         paddingValues = PaddingValues(start = 16.dp, end = 16.dp, top = 16.dp),
-        placeholderText = "Password (8+ characters)"
+        placeholderText = "Password (8+ characters)",
+        leadingIcon = null
     )
 }
